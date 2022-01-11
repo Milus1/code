@@ -1,5 +1,7 @@
 library(stringr)
 
+#PC2 must loaded in as all characters (otherwise BOARD ID fails)
+
 PC2$ID <- as.numeric(PC2$ID)
 PC2$TotalScoreGuess <- as.numeric(PC2$TotalScoreGuess)
 PC2$TimeTaken <- as.numeric(PC2$TimeTaken)
