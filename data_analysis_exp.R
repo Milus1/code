@@ -48,18 +48,8 @@ var(x)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # graphs/visualise
 # confirmatory vs exploratory analyses
 # check the APA guidelines for figures
 # check assumptions tests for main analyses: e.g. Levene's test and Shapiro-Wilk test?
+# analyse times between clicks: e.g. average the time between the firts 10 and last 10 clicks and compare between conditions
