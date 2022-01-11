@@ -61,3 +61,5 @@ var(x)
 
 # graphs/visualise
 # confirmatory vs exploratory analyses
+# check the APA guidelines for figures
+# check assumptions tests for main analyses: e.g. Levene's test and Shapiro-Wilk test?
