@@ -1,5 +1,3 @@
-### must have 
-
 data <- read.csv("C:/Users/Jeroe/OneDrive/Bureaublad/Thesis/Analysis/LearnedHelplesnessDATA.csv")
 
 library(ggplot2)
@@ -28,7 +26,12 @@ print(
   ggplot(lineplot_df,mapping = aes(y = means,x = block,group=group)) +
   geom_line(aes(colour=group)) +
   geom_point() + 
-  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.1) +
+  theme(legend.key.size = unit(0.8, 'mm'), #change legend key size
+          legend.key.height = unit(0.8, 'mm'), #change legend key height
+          legend.key.width = unit(3, 'mm'), #change legend key width
+          legend.title = element_text(size=10), #change legend title font size
+          legend.text = element_text(size=10)) + #change legend text font size 
+  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.2) +
   scale_y_continuous(labels = percent_format(accuracy = 1),limits = c(0,1)) + 
   theme_classic() +
   scale_color_manual(values = c('darkgrey','black')) +
@@ -62,7 +65,12 @@ print(ggplot(plot_df,aes(x=block,y=means,fill=group)) +
   theme_classic() + 
   labs(y = 'Rating', x = 'Block') +
   ylim(0,10) +
-  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.1, position = position_dodge(0.9)) +
+  theme(legend.key.size = unit(0.8, 'mm'), #change legend key size
+          legend.key.height = unit(0.8, 'mm'), #change legend key height
+          legend.key.width = unit(3, 'mm'), #change legend key width
+          legend.title = element_text(size=10), #change legend title font size
+          legend.text = element_text(size=10)) + #change legend text font size 
+  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.3, position = position_dodge(0.9)) +
   scale_fill_manual(values = c('darkgrey','darkslategrey')) +
   ggtitle(paste0(text[i],' \n P(reward) = ',p)) +
   theme(plot.title = element_text(hjust = 0.5))
@@ -90,8 +98,13 @@ for(p in c(0.1,0.2,0.4,1)){
   print(ggplot(indirect_df,aes(x=block,y=means,fill=group)) +
           geom_bar(stat="identity",position=position_dodge(),colour='black') +
           theme_classic() + 
+          theme(legend.key.size = unit(0.8, 'mm'), #change legend key size
+                legend.key.height = unit(0.8, 'mm'), #change legend key height
+                legend.key.width = unit(3, 'mm'), #change legend key width
+                legend.title = element_text(size=10), #change legend title font size
+                legend.text = element_text(size=10)) + #change legend text font size 
           labs(y = 'Variance', x = 'Block') +
-          geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.1, position = position_dodge(0.9)) +
+          geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.3, position = position_dodge(0.9)) +
           scale_fill_manual(values = c('darkgrey','darkslategrey')) +
           ggtitle(paste0(text[i],' \n P(reward) = ',p)) +
           theme(plot.title = element_text(hjust = 0.5))
@@ -141,7 +154,12 @@ ggplot(indirect2_df,aes(x=p_condition,y=means,fill=group)) +
   geom_bar(stat="identity",position=position_dodge(),colour='black') +
   theme_classic() + 
   labs(y = 'Squared correlation', x = 'Reward level') +
-  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.1, position = position_dodge(0.9)) +
+  theme(legend.key.size = unit(0.8, 'mm'), #change legend key size
+        legend.key.height = unit(0.8, 'mm'), #change legend key height
+        legend.key.width = unit(3, 'mm'), #change legend key width
+        legend.title = element_text(size=10), #change legend title font size
+        legend.text = element_text(size=10)) + #change legend text font size 
+  geom_errorbar(aes(ymax=means+errors,ymin=means-errors),width=0.3, position = position_dodge(0.9)) +
   ggtitle('Squared correlation between \n guessed scores and explored squares') +
   ylim(0,1) +
   scale_fill_manual(values = c('darkgrey','darkslategrey')) +
